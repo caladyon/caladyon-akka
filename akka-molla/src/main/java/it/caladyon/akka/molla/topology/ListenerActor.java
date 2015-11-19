@@ -17,15 +17,10 @@ import org.springframework.beans.factory.annotation.Required;
  * <ul>
  * <li>{@link #listenedActors}: lista ordinata di bean-name degli attori che devono essere ascoltati.
  * </ul>
- * L'ordine degli attori ascoltati nella lista serve a determinare il loro ruolo
- * (in ascoltatori che fanno questa distinzione, si veda ad esempio {@link BaseOldDeltaBenchmarkActor},
- * magari confrontandolo con attori che non fanno distinzione di ruoli, ad esempio {@link DummyListenerActor}).
- * <p>
- * Ci sono varie strategie per gestire gli arrivi dei messaggi da piu' ascoltatori,
- * implementate in varie classi <code>*ListenerActor</code>, in questo stesso package.
- * TODO: trasformare i vari ListenerActor in uno strategy pattern, come bean da iniettare in questo attore!!!
+ * L'ordine degli attori ascoltati nella lista puo' servire a determinare il loro ruolo
+ * (se l'ascoltatore prevede distinzione tra gli ascoltati).
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 1.0.4
  *
  */
@@ -46,9 +41,6 @@ abstract public class ListenerActor extends ListenableActor {
 		this.listenedActors = Arrays.asList(listenedActors);
 	}
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.ListenableActor#preStart()
-	 */
 	@Override
 	public void preStart() throws Exception {
 		super.preStart();
@@ -57,9 +49,6 @@ abstract public class ListenerActor extends ListenableActor {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.ListenableActor#postStop()
-	 */
 	@Override
 	public void postStop() throws Exception {
 		super.postStop();
@@ -91,7 +80,7 @@ abstract public class ListenerActor extends ListenableActor {
 	/**
 	 * Ricezione di un messaggio da parte di un {@link ListenableActor}.
 	 *
-	 * @see MessageWrapper
+	 * @see it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper
 	 *
 	 * @param message	MessageWrapper contenente il messaggio spedito dal {@link ListenableActor} ascoltato.
 	 */
@@ -123,10 +112,9 @@ abstract public class ListenerActor extends ListenableActor {
 	 * per i messaggi provenienti da mittenti non ascoltati, viene prodotto un log di warning.
 	 * Naturalmente il metodo puo' essere sovrascritto (ad esempio: per usare la dead letter mailbox di AKKA).
 	 *
-	 * @see #onListening(String, Object)
+	 * @see #onListening(MessageWrapper)
 	 *
-	 * @param senderLabel
-	 * @param msg
+	 * @param message
 	 *
 	 * @since 23/gen/2015
 	 */
@@ -135,9 +123,6 @@ abstract public class ListenerActor extends ListenableActor {
 				+ " ("+ message.getMsg().getClass() + ") @ " + message.getDateRef());
 	}
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.ListenableActor#isBeatable(java.lang.Object)
-	 */
 	@Override
 	protected boolean isBeatable(Object message) {
 		return  super.isBeatable(message)

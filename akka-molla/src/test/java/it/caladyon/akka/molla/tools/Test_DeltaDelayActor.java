@@ -25,7 +25,7 @@ import org.springframework.test.context.ContextConfiguration;
 import akka.testkit.TestActorRef;
 
 /**
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 @ContextConfiguration(classes = Test_DeltaDelayActor.class)

@@ -12,13 +12,13 @@ import java.util.Date;
  * <li>parametri di {@link NaiveListenerActor}.
  * </ul>
  *
- * @author 16800028
+ * @author Luciano Boschi
  * @deprecated
  */
 @Deprecated
 public abstract class AbstractTimedListenerActor extends NaiveListenerActor {
 
-	/** Default per {@link #deltaT} [secondi]. */
+	/** Default per {@link #milliDeltaT} [secondi]. */
 	public static final long DEFAULT_DELTA_T = 60;
 
 	/** Discretizzazione temporale [millisecondi]. */

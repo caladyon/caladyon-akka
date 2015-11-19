@@ -5,7 +5,7 @@
  * Package delle classi che definiscono il funzionamento base della "topologia" statica
  * per la gestione dei flussi di informazioni.
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 1.0.4
  *
  */

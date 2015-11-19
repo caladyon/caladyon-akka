@@ -42,7 +42,7 @@ import akka.testkit.TestActorRef;
  * <p>
  * Si veda il manuale di Akka, capitolo 3.9.1 / Testing the Actor's Behavior.
  *
- * @author 16800028
+ * @author Luciano Boschi
  * @deprecated Sostituito con Test_StrategistListenerActor_with_TolerantTimedListening_0
  */
 @Deprecated
@@ -60,7 +60,7 @@ public class Test_TolerantTimedListenerActor_0 extends AbstractJUnit4AkkaSpringT
 	/**
 	 * Classe di test (concretizzazione di {@link TimedListenerActor}).
 	 *
-	 * @author 16800028
+	 * @author Luciano Boschi
 	 *
 	 */
 	public static class TestTimedListenerActor extends TolerantTimedListenerActor {

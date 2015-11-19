@@ -38,7 +38,7 @@ import akka.testkit.TestActorRef;
 /**
  * Si veda il manuale di Akka, capitolo 3.9.1 / Testing the Actor's Behavior.
  *
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 @ContextConfiguration(classes = Test_StrategistListenerActor_with_TolerantTimedListening_0.class)
@@ -55,15 +55,12 @@ public class Test_StrategistListenerActor_with_TolerantTimedListening_0 extends 
 	/**
 	 * Classe di test (concretizzazione di {@link StrategistListenerActor}).
 	 *
-	 * @author 16800028
+	 * @author Luciano Boschi
 	 *
 	 */
 	public static class TestTolerantListenerActor
 	extends Test_StrategistListenerActor_with_NaiveListening.TestNaiveListenerActor {
 
-		/* (non-Javadoc)
-		 * @see it.infoblu.bit.trk.postfus.akka.topology.Test_StrategistListenerActor_with_NaiveListening.TestNaiveListenerActor#newListeningStrategy()
-		 */
 		@Override
 		protected Listening newListeningStrategy() {
 			strategy2 = new TolerantTimedListening();

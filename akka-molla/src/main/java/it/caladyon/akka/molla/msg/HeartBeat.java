@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Classe immutabile.
  *
- * @author 87001893
+ * @author Luciano Boschi
  *
  */
 public class HeartBeat implements Serializable {

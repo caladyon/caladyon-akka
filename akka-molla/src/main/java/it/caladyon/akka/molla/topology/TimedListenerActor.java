@@ -30,7 +30,7 @@ import it.caladyon.akka.molla.topology.help.TimedListening;
  * <li>parametri di {@link AbstractTimedListenerActor}.
  * </ul>
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 1.0.4
  *
  * @deprecated		Usare {@link StrategistListenerActor} con {@link TimedListening}

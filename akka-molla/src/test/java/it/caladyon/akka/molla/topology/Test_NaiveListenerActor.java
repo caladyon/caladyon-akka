@@ -6,15 +6,6 @@ package it.caladyon.akka.molla.topology;
 import static akka.pattern.Patterns.ask;
 import static org.junit.Assert.assertTrue;
 
-import it.caladyon.akka.spring.AbstractJUnit4AkkaSpringTests;
-import it.caladyon.akka.spring.SpringExtensionProvider;
-import it.caladyon.akka.spring.SpringExtensionProvider.SpringExt;
-import it.caladyon.akka.spring.config.AkkaConf;
-import it.caladyon.akka.molla.msg.HeartBeat;
-import it.caladyon.akka.molla.tools.HeartBeatTestingActor;
-import it.caladyon.akka.molla.tools.Test_DeltaDelayActor;
-import it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,16 +17,23 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
 import org.springframework.test.context.ContextConfiguration;
 
+import akka.actor.Props;
+import akka.testkit.TestActorRef;
+import it.caladyon.akka.molla.msg.HeartBeat;
+import it.caladyon.akka.molla.tools.HeartBeatTestingActor;
+import it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper;
+import it.caladyon.akka.spring.AbstractJUnit4AkkaSpringTests;
+import it.caladyon.akka.spring.SpringExtensionProvider;
+import it.caladyon.akka.spring.SpringExtensionProvider.SpringExt;
+import it.caladyon.akka.spring.config.AkkaConf;
 import scala.concurrent.Await;
 import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
-import akka.actor.Props;
-import akka.testkit.TestActorRef;
 
 /**
  * Si veda il manuale di Akka, capitolo 3.9.1 / Testing the Actor's Behavior.
  *
- * @author 16800028
+ * @author Luciano Boschi
  * @deprecated		Sostituito da Test_StrategistListenerActor_with_NaiveListening.
  */
 @Deprecated
@@ -49,7 +47,7 @@ public class Test_NaiveListenerActor extends AbstractJUnit4AkkaSpringTests {
 	/**
 	 * Classe di test (concretizzazione di {@link TimedListenerActor}).
 	 *
-	 * @author 16800028
+	 * @author Luciano Boschi
 	 *
 	 */
 	public static class TestNaiveListenerActor extends NaiveListenerActor {
@@ -110,7 +108,6 @@ public class Test_NaiveListenerActor extends AbstractJUnit4AkkaSpringTests {
 
 	/**
 	 * Controllo della generazione degli {@link HeartBeat} giusti.
-	 * Estensione di {@link #test_0()} con quanto fatto in {@link Test_DeltaDelayActor#test_HeartBeat()}.
 	 */
 	@Test
 	public void test_HeartBeat_3x1() {

@@ -33,7 +33,7 @@ import akka.testkit.TestActorRef;
 
 /**
  * Si veda il manuale di Akka, capitolo 3.9.1 / Testing the Actor's Behavior.
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 @ContextConfiguration(classes = Test_HeartBeatListeningActor.class)
@@ -46,7 +46,7 @@ public class Test_HeartBeatListeningActor extends AbstractJUnit4AkkaSpringTests 
 	/**
 	 * Metodi utili solo per test.
 	 *
-	 * @author 16800028
+	 * @author Luciano Boschi
 	 *
 	 */
 	public static class TestedActor extends HeartBeatListeningActor {

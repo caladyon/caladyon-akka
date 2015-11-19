@@ -141,7 +141,7 @@ public abstract class SpringActor extends UntypedActor implements BeanNameAware 
 	}
 
 	/**
-	 * Utility per {@link #composeHeartBeat(long, long)}:
+	 * Utility per {@link #composeHeartBeat(long, long, Object)}:
 	 * crea una mappa chiave-valore dei "segni vitali" dell'istanza in esecuzione.
 	 *
 	 * @param message

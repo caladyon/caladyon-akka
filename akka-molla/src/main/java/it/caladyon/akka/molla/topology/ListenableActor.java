@@ -12,7 +12,7 @@ import akka.actor.ActorRef;
 /**
  * Attore ascoltabile: puo' essere immaginato come una sorgente di dati.
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 1.0.4
  *
  */
@@ -35,7 +35,7 @@ abstract public class ListenableActor extends SpringActor {
 	 * Messaggio con indicazione di chi deve essere ascoltato.
 	 * Immutabile.
 	 *
-	 * @author Luciano Boschi 16800028
+	 * @author Luciano Boschi
 	 * @since 05/feb/2015
 	 *
 	 */
@@ -254,9 +254,6 @@ abstract public class ListenableActor extends SpringActor {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.SpringActor#isBeatable(java.lang.Object)
-	 */
 	@Override
 	protected boolean isBeatable(Object message) {
 		return  super.isBeatable(message)

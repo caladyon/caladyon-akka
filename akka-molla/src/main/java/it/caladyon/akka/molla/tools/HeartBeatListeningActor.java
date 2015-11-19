@@ -15,7 +15,7 @@ import akka.event.Logging;
 import akka.event.LoggingAdapter;
 
 /**
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 public class HeartBeatListeningActor extends UntypedActor {

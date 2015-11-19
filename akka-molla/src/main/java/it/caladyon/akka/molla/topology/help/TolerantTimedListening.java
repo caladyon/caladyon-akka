@@ -3,10 +3,10 @@
  */
 package it.caladyon.akka.molla.topology.help;
 
-import it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper;
 
 
 /**
@@ -41,7 +41,7 @@ public class TolerantTimedListening extends AbstractTimedListening {
 	/**
 	 * Decide l'azione da compiere in base ai timestamp del messaggio e dei messaggi gia' arrivati.
 	 *
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.NaiveListenerActor#onMultiListening(it.infoblu.bit.trk.postfus.akka.topology.ListenableActor.MessageWrapper)
+	 * Si veda <code>NaiveListenerActor#onMultiListening(MessageWrapper)</code>
 	 */
 	@Override
 	protected void onMultiListening(MessageWrapper message) {

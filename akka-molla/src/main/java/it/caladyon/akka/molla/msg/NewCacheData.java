@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Indica che un attore ha prodotto dei dati e li ha messi in cache, con la chiave indicata.
  *
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 15/gen/2015
  *
  */

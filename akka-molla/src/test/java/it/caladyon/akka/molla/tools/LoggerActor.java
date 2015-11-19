@@ -5,7 +5,7 @@ import it.caladyon.akka.molla.msg.HeartBeat;
 /**
  * Loggatore di battiti cardiaci.
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 16/mar/2015
  *
  */
@@ -15,9 +15,6 @@ public class LoggerActor extends HeartBeatListeningActor {
 
 	private long totTime = 0;
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.tools.HeartBeatListeningActor#onReceive(java.lang.Object)
-	 */
 	@Override
 	public void onReceive(Object message) throws Exception {
 		if (message instanceof HeartBeat) {

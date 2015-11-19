@@ -27,7 +27,7 @@ import java.util.TreeMap;
  * (opzionale, default = {@value #DEFAULT_SHIFT}).
  * </ul>
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 16/feb/2015
  *
  */
@@ -75,9 +75,6 @@ public class DeltaDelayActor extends AbstractTicketyActor {
 		this.shift = shift;
 	}
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.actor.AbstractTicketyActor#manageTime()
-	 */
 	@Override
 	protected void manageTime() {
 		long now = System.currentTimeMillis();

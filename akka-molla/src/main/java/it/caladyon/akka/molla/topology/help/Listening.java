@@ -18,7 +18,7 @@ import akka.event.LoggingAdapter;
  * I bean che implementano questa interfaccia sono <i>stateful</i>,
  * per cui e' bene che vengano definiti come <b>prototype</b>.
  *
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 public interface Listening {
@@ -26,7 +26,7 @@ public interface Listening {
 	/**
 	 * E' lo stesso StrategistListenerActor ad implementare questa interfaccia.
 	 *
-	 * @author 16800028
+	 * @author Luciano Boschi
 	 *
 	 */
 	public interface Callback {

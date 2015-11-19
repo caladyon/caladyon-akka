@@ -19,12 +19,12 @@ import java.util.Date;
  * <p>
  * TODO: prendere il default del <code>deltaT</code> da app.properties "globale"
  *
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 public abstract class AbstractTimedListening extends NaiveListening {
 
-	/** Default per {@link #deltaT} [secondi]. */
+	/** Default per {@link #milliDeltaT} [secondi]. */
 	public static final long DEFAULT_DELTA_T = 60;
 
 	/** Discretizzazione temporale [millisecondi]. */

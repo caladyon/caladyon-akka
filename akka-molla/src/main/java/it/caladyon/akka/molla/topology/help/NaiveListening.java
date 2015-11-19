@@ -18,14 +18,11 @@ import java.util.Date;
  * indipendentemente dall'ordine e dalle differenze di <code>dateRef</code>.
  * </ul>
  *
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 public class NaiveListening extends BaseListening {
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.help.Listening#onListening(it.infoblu.bit.trk.postfus.akka.topology.ListenableActor.MessageWrapper)
-	 */
 	@Override
 	public void onListening(MessageWrapper message) {
 		if (listenedActors.size() == 1) {
@@ -39,7 +36,6 @@ public class NaiveListening extends BaseListening {
 	 * Logica di ricezione di un messaggio, in caso di multi-ascoltatore.
 	 * Inserisce il messaggio e, quando ci sono tutti i messaggi attesi, chiama {@link #execute0(Date)}.
 	 *
-	 * @see it.infoblu.bit.trk.postfus.akka.tools.LoggerActor#onMultiListening(java.lang.String, java.util.Date, java.lang.Object)
 	 */
 	protected void onMultiListening(MessageWrapper message) {
 		inputsPut(message);
@@ -52,16 +48,12 @@ public class NaiveListening extends BaseListening {
 	 * Logica di ricezione di un messaggio, in caso di mono-ascoltatore.
 	 * Inserisce il messaggio e chiama {@link #execute0(Date)}.
 	 *
-	 * @see it.infoblu.bit.trk.postfus.akka.tools.LoggerActor#onMonoListening(java.lang.String, java.util.Date, java.lang.Object)
 	 */
 	protected void onMonoListening(MessageWrapper message) {
 		inputsPut(message);
 		execute0(message.getDateRef());
 	}
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.help.Listening#isBeatable(java.lang.Object)
-	 */
 	@Override
 	public boolean isBeatable(Object message) {
 		return inputs.isEmpty();

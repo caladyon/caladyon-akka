@@ -17,7 +17,7 @@ import akka.actor.Cancellable;
  * </ul>
  *
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 16/feb/2015
  *
  */

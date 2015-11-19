@@ -16,7 +16,7 @@ import akka.event.LoggingAdapter;
 
 
 /**
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 abstract public class BaseListening implements Listening {
@@ -53,9 +53,6 @@ abstract public class BaseListening implements Listening {
 		inputs = Collections.unmodifiableMap(myInputs);
 	}
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.help.Listening#setCallback(it.infoblu.bit.trk.postfus.akka.topology.help.Listening.Callback)
-	 */
 	@Override
 	public final void setCallback(Callback callback) {
 		this.callback = callback;
@@ -69,9 +66,6 @@ abstract public class BaseListening implements Listening {
 		this.listenedActors = listenedActors;
 	}
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.help.Listening#setLog(akka.event.LoggingAdapter)
-	 */
 	@Override
 	public final void setLog(LoggingAdapter log) {
 		this.log = log;
@@ -86,7 +80,7 @@ abstract public class BaseListening implements Listening {
 	}
 
 	/**
-	 * Chiama {@link Callback#execute(Date)} e poi resetta {@link #myInputs}.
+	 * Chiama {@link it.caladyon.akka.molla.topology.help.Listening.Callback#execute(Date)} e poi resetta {@link #myInputs}.
 	 *
 	 * @param dateRef			Timestamp dell'<b>ultimo</b> messaggio arrivato.
 	 *
@@ -168,7 +162,7 @@ abstract public class BaseListening implements Listening {
 	 * @param label		Etichette dei mittenti (contenute in <code>listenedActors</code>).
 	 * @return
 	 *
-	 * @throws		IllegalStateException		Quando l'etichetta data non e' contenuta in {@link ListenerActor#listenedActors}.
+	 * @throws		IllegalStateException		Quando l'etichetta data non e' contenuta in {@link ListenerActor}<code>#listenedActors</code>.
 	 *
 	 * @since 22/gen/2015
 	 */

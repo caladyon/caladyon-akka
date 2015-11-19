@@ -18,7 +18,7 @@ import java.util.List;
  * <li>parametri di {@link AbstractTimedListenerActor}.
  * </ul>
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 1.0.4
  * @deprecated		Sostituito con TolerantTimedListening
  */
@@ -43,7 +43,7 @@ abstract public class TolerantTimedListenerActor extends AbstractTimedListenerAc
 	/**
 	 * Decide l'azione da compiere in base ai timestamp del messaggio e dei messaggi gia' arrivati.
 	 *
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.NaiveListenerActor#onMultiListening(it.infoblu.bit.trk.postfus.akka.topology.ListenableActor.MessageWrapper)
+	 * @see NaiveListenerActor#onMultiListening(MessageWrapper)
 	 */
 	@Override
 	protected void onMultiListening(MessageWrapper message) {

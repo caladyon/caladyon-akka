@@ -6,16 +6,6 @@ package it.caladyon.akka.molla.topology.help;
 import static akka.pattern.Patterns.ask;
 import static org.junit.Assert.assertTrue;
 
-import it.caladyon.akka.spring.AbstractJUnit4AkkaSpringTests;
-import it.caladyon.akka.spring.SpringExtensionProvider;
-import it.caladyon.akka.spring.SpringExtensionProvider.SpringExt;
-import it.caladyon.akka.spring.config.AkkaConf;
-import it.caladyon.akka.molla.msg.HeartBeat;
-import it.caladyon.akka.molla.tools.HeartBeatTestingActor;
-import it.caladyon.akka.molla.tools.Test_DeltaDelayActor;
-import it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper;
-import it.caladyon.akka.molla.topology.StrategistListenerActor;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,18 +17,26 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
 import org.springframework.test.context.ContextConfiguration;
 
+import akka.actor.Props;
+import akka.testkit.TestActorRef;
+import it.caladyon.akka.molla.msg.HeartBeat;
+import it.caladyon.akka.molla.tools.HeartBeatTestingActor;
+import it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper;
+import it.caladyon.akka.molla.topology.StrategistListenerActor;
+import it.caladyon.akka.spring.AbstractJUnit4AkkaSpringTests;
+import it.caladyon.akka.spring.SpringExtensionProvider;
+import it.caladyon.akka.spring.SpringExtensionProvider.SpringExt;
+import it.caladyon.akka.spring.config.AkkaConf;
 import scala.concurrent.Await;
 import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
-import akka.actor.Props;
-import akka.testkit.TestActorRef;
 
 /**
  * Sostituisce Test_NaiveListenerActor.
  *
  * Si veda il manuale di Akka, capitolo 3.9.1 / Testing the Actor's Behavior.
  *
- * @author 16800028
+ * @author Luciano Boschi
  */
 @ContextConfiguration(classes = Test_StrategistListenerActor_with_NaiveListening.class)
 @Configuration
@@ -52,7 +50,7 @@ public class Test_StrategistListenerActor_with_NaiveListening extends AbstractJU
 	 * Ho preferito ridefinire {@link #newListeningStrategy()} per poter salvare la strategia in un campo
 	 * accessibile ai test con un getter.
 	 *
-	 * @author 16800028
+	 * @author Luciano Boschi
 	 *
 	 */
 	public static class TestNaiveListenerActor extends StrategistListenerActor {
@@ -79,9 +77,6 @@ public class Test_StrategistListenerActor_with_NaiveListening extends AbstractJU
 			return strategy2;
 		}
 
-		/* (non-Javadoc)
-		 * @see it.infoblu.bit.trk.postfus.akka.topology.StrategistListenerActor#checkListeningStrategy()
-		 */
 		@Override
 		protected Listening newListeningStrategy() {
 			strategy2 = new NaiveListening();
@@ -128,7 +123,6 @@ public class Test_StrategistListenerActor_with_NaiveListening extends AbstractJU
 
 	/**
 	 * Controllo della generazione degli {@link HeartBeat} giusti.
-	 * Estensione di {@link #test_0()} con quanto fatto in {@link Test_DeltaDelayActor#test_HeartBeat()}.
 	 * @throws Exception
 	 */
 	@Test

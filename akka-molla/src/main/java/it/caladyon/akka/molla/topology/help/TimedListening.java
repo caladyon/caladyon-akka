@@ -20,7 +20,7 @@ import it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper;
  * <li>se precedente, il messaggio viene scartato;
  * <li>se successivo, il buffer viene svuotato e il nuovo messaggio viene inserito nel buffer.
  * </ul>
- * Nell'ultimo caso, non viene invocato il metodo {@link #execute(java.util.Date)}:
+ * Nell'ultimo caso, non viene invocato il metodo <code>execute</code>:
  * questo significa che le esecuzioni vengono avviate se e solo se arrivano i messaggi di <b>tutti</b> gli ascoltati
  * relativi ad uno stesso intervallo temporale, prima che arrivino messaggi relativi a intervalli temporali successivi.
  * <p>
@@ -29,7 +29,7 @@ import it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper;
  * <li>parametri di {@link AbstractTimedListening}.
  * </ul>
  *
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 public class TimedListening extends AbstractTimedListening {
@@ -37,7 +37,7 @@ public class TimedListening extends AbstractTimedListening {
 	/**
 	 * Decide l'azione da compiere in base ai timestamp del messaggio e dei messaggi gia' arrivati.
 	 *
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.help.NaiveListening#onMultiListening(it.infoblu.bit.trk.postfus.akka.topology.ListenableActor.MessageWrapper)
+	 * @see NaiveListening#onMultiListening(MessageWrapper)
 	 */
 	@Override
 	protected void onMultiListening(MessageWrapper message) {

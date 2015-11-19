@@ -1,10 +1,10 @@
 /**
- * 
+ *
  */
 package it.caladyon.akka.molla.msg;
 
 /**
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 public class StatRequest {

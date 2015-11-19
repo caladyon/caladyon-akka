@@ -21,7 +21,7 @@ import java.util.Map;
  * indipendentemente dall'ordine e dalle differenze di <code>dateRef</code>.
  * </ul>
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 1.0.4
  * @deprecated		Sostituita da StrategicListenerActor con NaiveListening
  */
@@ -132,7 +132,6 @@ abstract public class NaiveListenerActor extends ListenerActor {
 	 * Logica di ricezione di un messaggio, in caso di multi-ascoltatore.
 	 * Inserisce il messaggio e, quando ci sono tutti i messaggi attesi, chiama {@link #execute0(Date)}.
 	 *
-	 * @see it.infoblu.bit.trk.postfus.akka.tools.LoggerActor#onMultiListening(java.lang.String, java.util.Date, java.lang.Object)
 	 * @deprecated		Spostato in NaiveListening.
 	 */
 	@Deprecated
@@ -147,7 +146,6 @@ abstract public class NaiveListenerActor extends ListenerActor {
 	 * Logica di ricezione di un messaggio, in caso di mono-ascoltatore.
 	 * Inserisce il messaggio e chiama {@link #execute0(Date)}.
 	 *
-	 * @see it.infoblu.bit.trk.postfus.akka.tools.LoggerActor#onMonoListening(java.lang.String, java.util.Date, java.lang.Object)
 	 * @deprecated		Spostato in NaiveListening.
 	 */
 	@Deprecated
@@ -158,8 +156,8 @@ abstract public class NaiveListenerActor extends ListenerActor {
 
 	/**
 	 * Chiama {@link #execute(Date)} e poi resetta {@link #inputs}.
-	 * Metodo invocato da {@link #onMonoListening(String, Date, Object)}
-	 * e {@link #onMultiListening(String, Date, Object)}.
+	 * Metodo invocato da onMonoListening
+	 * e onMultiListening.
 	 *
 	 * @param dateRef			Timestamp dell'<b>ultimo</b> messaggio arrivato.
 	 *
@@ -182,7 +180,8 @@ abstract public class NaiveListenerActor extends ListenerActor {
 	abstract protected void execute(Date dateRef);
 
 	/**
-	 * Restituisce l'unico <b>messaggio</b> di input registrato, gia' estratto dal {@link MessageWrapper}.
+	 * Restituisce l'unico <b>messaggio</b> di input registrato,
+	 * gia' estratto dal {@link it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper}.
 	 * Questo metodo serve solo in un attore "mono-ascoltatore";
 	 * per attori "multi-ascoltatore", usare {@link #getInput(int)}.
 	 *
@@ -203,7 +202,7 @@ abstract public class NaiveListenerActor extends ListenerActor {
 	}
 
 	/**
-	 * Prende uno dei <b>{@link MessageWrapper}</b> arrivati.
+	 * Prende uno dei <b>{@link it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper}</b> arrivati.
 	 * E' una funzione a sostegno di {@link #getInput(int)} e {@link #getMessageWrapper(int)}.
 	 *
 	 * @param label		Etichette dei mittenti (contenute in <code>listenedActors</code>).
@@ -224,8 +223,9 @@ abstract public class NaiveListenerActor extends ListenerActor {
 	}
 
 	/**
-	 * Prende uno dei <b>messaggi</b> di input, gia' estratto dal {@link MessageWrapper}.
-	 * Per ottenere il {@link MessageWrapper}, si usi {@link #getMessageWrapper(int)}.
+	 * Prende uno dei <b>messaggi</b> di input,
+	 * gia' estratto dal {@link it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper}.
+	 * Per ottenere il <code>MessageWrapper</code>, si usi {@link #getMessageWrapper(int)}.
 	 *
 	 * @param index		Indice dell'attore ascoltato (si veda <code>listenedActors</code>).
 	 * @return
@@ -239,7 +239,7 @@ abstract public class NaiveListenerActor extends ListenerActor {
 	}
 
 	/**
-	 * Prende uno dei <b>{@link MessageWrapper}</b> arrivati.
+	 * Prende uno dei <b>{@link it.caladyon.akka.molla.topology.ListenableActor.MessageWrapper}</b> arrivati.
 	 *
 	 * @param index		Indice dell'attore ascoltato (si veda <code>listenedActors</code>).
 	 * @return
@@ -257,7 +257,7 @@ abstract public class NaiveListenerActor extends ListenerActor {
 	 * per attori multi-ascoltatore, questo equivale a dire che il battito viene inviato solo quando
 	 * sono arrivati tutti i messaggi.
 	 *
-	 * @see it.infoblu.bit.trk.postfus.akka.topology.ListenerActor#isBeatable(java.lang.Object)
+	 * @see it.caladyon.akka.molla.topology.ListenerActor#isBeatable(java.lang.Object)
 	 * @deprecated		Spostato in StrategistListenerActor & NaiveListening.
 	 */
 	@Deprecated

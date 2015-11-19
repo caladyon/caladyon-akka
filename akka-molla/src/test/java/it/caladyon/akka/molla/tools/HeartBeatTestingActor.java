@@ -8,7 +8,7 @@ import it.caladyon.akka.molla.msg.HeartBeat;
 /**
  * Actor bean per i test di integrazione del sistema di monitoraggio.
  *
- * @author 16800028
+ * @author Luciano Boschi
  *
  */
 public class HeartBeatTestingActor extends HeartBeatListeningActor {
@@ -30,9 +30,6 @@ public class HeartBeatTestingActor extends HeartBeatListeningActor {
 		this.total = total;
 	}
 
-	/* (non-Javadoc)
-	 * @see it.infoblu.bit.trk.postfus.akka.tools.HeartBeatListeningActor#onReceive(java.lang.Object)
-	 */
 	@Override
 	public void onReceive(Object message) throws Exception {
 		super.onReceive(message);

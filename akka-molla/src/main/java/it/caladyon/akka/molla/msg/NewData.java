@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * Contiene i dati prodotti da un attore, che diventano input degli attori in ascolto.
  *
- * @author Luciano Boschi 16800028
+ * @author Luciano Boschi
  * @since 15/gen/2015
  *
  */
