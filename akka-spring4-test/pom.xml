@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>it.caladyon.akka</groupId>
 	<artifactId>akka-spring4-test</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.0-SNAPSHOT</version>
 	
 	<name>akka-spring4-test</name>
 	<description>Test for akka-spring4</description>
@@ -27,6 +27,12 @@
 	</properties>
 
 	<dependencies>
+		
+		<dependency>
+			<groupId>it.caladyon.akka</groupId>
+			<artifactId>akka-spring4</artifactId>
+			<version>0.1.0</version>
+		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework</groupId>
