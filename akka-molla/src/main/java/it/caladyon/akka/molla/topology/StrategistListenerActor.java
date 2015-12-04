@@ -7,6 +7,7 @@ import java.util.Collections;
 
 import javax.annotation.PostConstruct;
 
+import it.caladyon.akka.molla.msg.HeartBeat;
 import it.caladyon.akka.molla.topology.help.Listening;
 import it.caladyon.akka.molla.topology.help.TimedListening;
 
@@ -14,7 +15,7 @@ import it.caladyon.akka.molla.topology.help.TimedListening;
  * <p>
  * Questo bean va inizializzato con
  * <ul>
- * <li>{@link #strategy listening}: strategia di ascolto (opzionale, default definito in {@link #doPostConstruct()});
+ * <li>{@link #strategy listening}: strategia di ascolto (opzionale, default definito in {@link #newListeningStrategy()});
  * <li>parametri di {@link ListenerActor}.
  * </ul>
  * @author Luciano Boschi
@@ -49,7 +50,7 @@ public abstract class StrategistListenerActor extends ListenerActor implements L
 	}
 
 	/**
-	 * @return
+	 * @return		Default per {@link #doPostConstruct()}.
 	 */
 	protected Listening newListeningStrategy() {
 		return new TimedListening();
@@ -61,6 +62,10 @@ public abstract class StrategistListenerActor extends ListenerActor implements L
 	}
 
 	/**
+	 * Invia lo {@link HeartBeat} solo quando viene invocato execute0(Date)
+	 * (che resetta inputs):
+	 * per attori multi-ascoltatore, questo equivale a dire che il battito viene inviato solo quando
+	 * sono arrivati tutti i messaggi.
 	 *
 	 * @see ListenerActor#isBeatable(java.lang.Object)
 	 */

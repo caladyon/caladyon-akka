@@ -111,7 +111,7 @@ public class Test_HeartBeatListeningActor extends AbstractJUnit4AkkaSpringTests 
 		// questo metodo di creazione delle Props e' ripreso da ActorSystemStarter
 		final SpringExt springExtProvider = SpringExtensionProvider.springExtProvider.get(system);
 		final Props props = springExtProvider.props(TESTED_ACTOR_BEAN_NAME);
-		final TestActorRef<TestedActor> ref = TestActorRef.create(system, props, "test_0");
+		final TestActorRef<TestedActor> ref = TestActorRef.create(system, props, "test_1");
 		final ActorPath path = ref.path();
 //		final TestedActor actor = ref.underlyingActor();
 
@@ -139,7 +139,7 @@ public class Test_HeartBeatListeningActor extends AbstractJUnit4AkkaSpringTests 
 		// questo metodo di creazione delle Props e' ripreso da ActorSystemStarter
 		final SpringExt springExtProvider = SpringExtensionProvider.springExtProvider.get(system);
 		final Props props = springExtProvider.props(TESTED_ACTOR_BEAN_NAME);
-		final TestActorRef<TestedActor> ref = TestActorRef.create(system, props, "test_0");
+		final TestActorRef<TestedActor> ref = TestActorRef.create(system, props, "test_2");
 		final ActorPath path = ref.path();
 //		final TestedActor actor = ref.underlyingActor();
 
@@ -157,7 +157,8 @@ public class Test_HeartBeatListeningActor extends AbstractJUnit4AkkaSpringTests 
 		// esecuzione simile a quella del MonitorController
 		ActorSelection asel = system.actorSelection(path);
 		Future<Object> f = Patterns.ask(asel, new StatRequest(), TIMEOUT);
-		Object result = Await.result(f, Duration.create(TIMEOUT, TimeUnit.MILLISECONDS));
+		//Object result = Await.result(f, Duration.Zero());
+		Object result = Await.result(f, Duration.create(TIMEOUT * 3, TimeUnit.MILLISECONDS));
 
 		Assert.assertTrue("type", result instanceof Map<?, ?>);
 		Assert.assertTrue("size", ((Map<?, ?>) result).size() == 3);

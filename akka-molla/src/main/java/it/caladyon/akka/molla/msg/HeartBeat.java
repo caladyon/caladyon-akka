@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Classe immutabile.
+ * Immutable class.
  *
  * @author Luciano Boschi
  *
