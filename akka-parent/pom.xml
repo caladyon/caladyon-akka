@@ -78,15 +78,6 @@
 
 	</build>
 	
-	<distributionManagement>
-		<repository>
-			<id>ibInternal</id>
-			<url>
-				ftp://libsrv.gruppo.autostrade.it/export/home/iv00/httpd/libsrv/maven2
-			</url>
-		</repository>
-	</distributionManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>com.typesafe.akka</groupId>
