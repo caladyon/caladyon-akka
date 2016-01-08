@@ -8,16 +8,16 @@
 	</parent>
 	<groupId>it.caladyon.akka</groupId>
 	<artifactId>akka-molla</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0</version>
 	<name>akka-molla</name>
 	<description>akka-molla</description>
 
-	<contributors>
-		<contributor>
+	<developers>
+		<developer>
 			<name>Luciano Boschi</name>
 			<email>caladyon@gmail.com</email>
-		</contributor>
-	</contributors>
+		</developer>
+	</developers>
 
 	<properties>
 		<spring-framework.version>4.1.5.RELEASE</spring-framework.version>
@@ -31,13 +31,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.5</version>
-<!-- 				<configuration> -->
-<!-- 					<archive> -->
-<!-- 						<manifest> -->
-<!-- 							<addClasspath>true</addClasspath> -->
-<!-- 						</manifest> -->
-<!-- 					</archive> -->
-<!-- 				</configuration> -->
 			</plugin>
 
 			<plugin>
