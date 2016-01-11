@@ -8,15 +8,18 @@
 	<name>akka-parent</name>
 	<description>Parent POM for AKKA projects</description>
 
-	<contributors>
-		<contributor>
+	<developers>
+		<developer>
 			<name>Luciano Boschi</name>
 			<email>caladyon@gmail.com</email>
-		</contributor>
-	</contributors>
+		</developer>
+	</developers>
 
 	<properties>
 		<akka.version>2.3.9</akka.version>
+		<license.licenseName>lgpl_v3</license.licenseName>
+		<license.organizationName>Luciano &apos;caladyon&apos; Boschi</license.organizationName>
+		<license.inceptionYear>2015</license.inceptionYear>
 	</properties>
 
 	<build>

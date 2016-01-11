@@ -21,7 +21,11 @@
 
 	<properties>
 		<spring-framework.version>4.1.5.RELEASE</spring-framework.version>
+		<license.licenseName>lgpl_v3</license.licenseName>
+		<license.organizationName>Luciano &apos;caladyon&apos; Boschi</license.organizationName>
+		<license.inceptionYear>2015</license.inceptionYear>
 	</properties>
+
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
